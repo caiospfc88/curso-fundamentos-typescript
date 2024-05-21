@@ -24,3 +24,31 @@ const result = merge(
 );
 
 console.log("Objeto resultado: ", result);
+
+type Todo = {
+  title: string;
+  description: string;
+  completed: boolean;
+};
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+  return { ...todo, ...fieldsToUpdate };
+}
+
+const meuTodo: Todo = {
+  title: "Teste",
+  description: "Testando",
+  completed: false,
+};
+
+const todoAtualizado = updateTodo(meuTodo, { completed: true });
+
+console.log("Meu todo", todoAtualizado);
+
+//somente leitura
+const meuSegundoTodo: Readonly<Todo> = {
+  title: "Teste 2",
+  description: "Testando 2",
+  completed: false,
+};
+
+//meuSegundoTodo.title = "testando ReadOnly"

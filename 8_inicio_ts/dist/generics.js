@@ -16,3 +16,20 @@ function merge(obj1, obj2) {
 }
 const result = merge({ name: "Caio", age: 36 }, { job: "Programador", isActive: true });
 console.log("Objeto resultado: ", result);
+function updateTodo(todo, fieldsToUpdate) {
+    return Object.assign(Object.assign({}, todo), fieldsToUpdate);
+}
+const meuTodo = {
+    title: "Teste",
+    description: "Testando",
+    completed: false,
+};
+const todoAtualizado = updateTodo(meuTodo, { completed: true });
+console.log("Meu todo", todoAtualizado);
+//somente leitura
+const meuSegundoTodo = {
+    title: "Teste 2",
+    description: "Testando 2",
+    completed: false,
+};
+//meuSegundoTodo.title = "testando ReadOnly"
